@@ -1,1 +1,53 @@
 
+<!doctype HTML>
+<html>
+
+<head>
+    <title>Calc</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <div id="io">
+        <div id="ans"></div>
+        <div id="calc"></div>
+    </div>
+    <div id="box">
+        <button id="ac" onclick="ac()">AC</button>
+        <button id="x" onclick="back()">
+            <ion-icon name="backspace-outline"></ion-icon>
+        </button>
+        <button id="perc">%</button>
+        <button id="divi" onclick="divi()">/</button>
+
+
+        <button id="7" onclick="seven()">7</button>
+        <button id="8" onclick="eight()">8</button>
+        <button id="9" onclick="nine()">9</button>
+        <button id="mul" onclick="mul()">*</button>
+
+        <button id="4" onclick="four()">4</button>
+        <button id="5" onclick="five()">5</button>
+        <button id="6" onclick="six()">6</button>
+        <button id="sub" onclick="sub()">-</button>
+
+        <button id="1" onclick="one()">1</button>
+        <button id="2" onclick="two()">2</button>
+        <button id="3" onclick="three()">3</button>
+        <button id="add" onclick="add()">+</button>
+
+        <button id="blank">_</button>
+        <button id="0" onclick="zero()">0</button>
+        <button id="dot" onclick="dot()">.</button>
+        <button id="equal" onclick="equal()">=</button>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/script.js"></script>
+</body>
+
+</html>
