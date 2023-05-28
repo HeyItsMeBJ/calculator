@@ -1,0 +1,263 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <title>Calc</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <div id="io">
+        <div id="ans"></div>
+        <div id="calc"></div>
+    </div>
+    <div id="box">
+        <button id="ac" onclick="ac()">AC</button>
+        <button id="x" onclick="back()">
+            <ion-icon name="backspace-outline"></ion-icon>
+        </button>
+        <button id="perc">%</button>
+        <button id="divi" onclick="divi()">/</button>
+
+
+        <button id="7" onclick="seven()">7</button>
+        <button id="8" onclick="eight()">8</button>
+        <button id="9" onclick="nine()">9</button>
+        <button id="mul" onclick="mul()">*</button>
+
+        <button id="4" onclick="four()">4</button>
+        <button id="5" onclick="five()">5</button>
+        <button id="6" onclick="six()">6</button>
+        <button id="sub" onclick="sub()">-</button>
+
+        <button id="1" onclick="one()">1</button>
+        <button id="2" onclick="two()">2</button>
+        <button id="3" onclick="three()">3</button>
+        <button id="add" onclick="add()">+</button>
+
+        <button id="blank">_</button>
+        <button id="0" onclick="zero()">0</button>
+        <button id="dot" onclick="dot()">.</button>
+        <button id="equal" onclick="equal()">=</button>
+
+    </div>
+  <style>body {
+    margin: 0px;
+    background-color: rgb(0, 0, 0);
+
+}
+
+#box button {
+    display: inline-block;
+    justify-self: center;
+    /* align-self: center; */
+    font-size: 18px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    border: none;
+    background-color: rgb(233, 240, 238);
+
+}
+
+
+#box {
+
+    margin-left:  10vw;
+    margin-right: 10vw;
+    margin-top: 10vh;
+    background-color: rgb(233, 240, 238);
+    gap: 5px 5px;
+    border: 2px rgb(139, 139, 139) solid;
+    border-radius: 20px;
+    box-shadow: -2px 2px 10px rgb(255, 254, 254);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#box button:active {
+    background-color: rgb(199, 201, 199);
+    padding: 8px 20px;
+    border-radius: 30%;
+    box-shadow: -2px 2px 10px rgb(199, 201, 199);
+}
+
+#io{
+    background-color: rgba(95, 93, 93, 0.952);
+   margin-left: 10vw;
+   margin-right: 10vw;
+   margin-top: 20vh;
+   height: 56px;
+   border-radius: 10px;
+    border: 2px rgb(139, 139, 139) solid;
+    color: rgb(250, 255, 250);
+    font-weight: 700;
+
+}
+#io div{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+#ans{
+    font-size: x-small;
+    font-weight: 100;
+}
+</style>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>const calculation=document.getElementById('calc');
+const result=document.getElementById('ans');
+var dis=0;
+var num=0;
+var operator='+';
+
+var ans=0*1;
+const zero = () => {
+    checkEqual();
+    dis=dis + '0';
+    num+= '0';
+    calculation.innerHTML=dis;
+}
+const one = () => {
+    checkEqual();
+    dis=dis + '1';
+    num+= '1';
+    calculation.innerHTML=dis;
+}
+const two = () => {
+    checkEqual();
+    num+= '2';
+    dis=dis + '2';
+    calculation.innerHTML=dis;
+}
+const three = () => {
+    checkEqual();
+    num+= '3';
+    dis=dis + '3';
+    calculation.innerHTML=dis;
+}
+const four = () => {
+    checkEqual();
+    num+= '4';
+    dis=dis + '4';
+    calculation.innerHTML=dis;
+}
+const five = () => {
+    checkEqual();
+    num+= '5';
+    dis=dis + '5';
+    calculation.innerHTML=dis;
+}
+const six = () => {
+    checkEqual();
+    num+= '6';
+    dis=dis + '6';
+    calculation.innerHTML=dis;
+}
+const seven = () => {
+    checkEqual();
+    num+= '7';
+    dis=dis + '7';
+    calculation.innerHTML=dis;
+}
+const eight = () => {
+    checkEqual();
+    num+= '8';
+    dis=dis + '8';
+    calculation.innerHTML=dis;
+}
+const nine = () => {
+    checkEqual();
+    num+= '9';
+    dis=dis + '9';
+    calculation.innerHTML=dis;
+}
+const dot=()=>{
+    checkEqual();
+     num+= '.';
+    dis=dis + '.';
+    calculation.innerHTML=dis;
+}
+const add = () => {
+    decide();
+    operator='+';
+     dis=dis + '+';
+    calculation.innerHTML=dis;
+  
+}
+const sub = () => {
+    decide();
+    operator='-';
+     dis=dis + '-';
+    calculation.innerHTML=dis;
+  
+}
+const mul = () => {
+    decide();
+    operator='*';
+     dis=dis + '*';
+    calculation.innerHTML=dis;
+  
+}
+const divi = () => {
+    decide();
+    operator='/';
+   dis=dis + '/';
+    calculation.innerHTML=dis;
+}
+const equal = () => {
+    decide();
+    operator='+';
+    result.innerHTML=dis;
+    dis=ans;
+    calculation.innerHTML=ans;
+    // ans=0*1;
+  
+}
+const checkEqual=()=>{
+    if(dis==ans){
+        dis=0;
+        ans=0*1;
+        calculation.innerHTML=dis;
+    result.innerHTML=ans;
+
+    }
+}
+
+const decide = () => {
+    var temp=Number(num);
+//    console.log(num,operator);
+    if(operator=='+')ans+=temp;
+    if(operator=='*')ans*=temp;
+    if(operator=='/')ans/=temp;
+    if(operator=='-')ans-=temp;
+    // console.log(ans);
+     num=0*1;
+     
+}
+const back=()=>{
+dis=dis.slice(0,dis.length-1);
+if(num!=0)num=num.slice(0,num.length-1);
+ans=ans.slice(0,ans.length-1);
+
+    calculation.innerHTML=dis;
+
+}
+const ac=()=>{
+    dis=0;
+    num=0;
+    ans=0*1;
+    result.innerHTML=ans;
+    calculation.innerHTML=dis;
+
+}
+
+</script>
+</body>
+
+</html>
